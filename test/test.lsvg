@@ -1,0 +1,57 @@
+require "plugins/tree"
+
+set_tree_props{SHAPE="Z"}
+
+local tr,x,y=make_tree_LR{"root",	{
+	{"left"},
+	{"right",{
+		{"r1"},
+		{"r2"},
+		{"r3",{
+			{"rr1"},
+			{"rr2"},
+			{"rr3"},
+		}},
+	}},	
+	}
+}
+
+
+tr[1].STYLE="fill:orange;"
+tr[2].STYLE="fill:red;"
+tr[2][3].STYLE="fill:grey;"
+
+local p={CLOSE=true,STYLE="fill:orange;",cx=600,cy=600,LABEL="FIVE",MIDDLE="url(#point2d)",TAIL="url(#point2d)",SMOOTH,TYPE="path"}
+
+local r,a
+local cos,sin,pi= math.cos,math.sin,math.pi
+for i=1,10 do
+	r=(i%2+1)*50
+	p[i]={r*cos((i-1)*pi/5),r*sin((i-1)*pi/5)}
+end
+
+node(p)
+
+export("tree.png")
+
+print(clear_elements())
+
+require "plugins/flowchart"
+
+local start=state("start","D1R3")
+local p1=process("p1","D1",start)
+local p2=process("p2","D1",p1)
+local c=condition("c?","D1",p2)
+local p3=process("p3","D1",c)
+local p4=process("p4","R1",p3)
+local _end=state("end","D1",p3)
+
+point_to(start,p1)
+point_to(p1,p2)
+point_to(p2,c)
+point_to(c,p3,"no","R5S","-")
+point_to(c,p4,"yes","U5M","7")
+point_to(p3,_end)
+point_to(p4,_end,"","","N")
+
+export("test-flowchart.png")

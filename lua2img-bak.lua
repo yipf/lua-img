@@ -22,7 +22,7 @@ local get_border=get_border
 -- core functions
 ----------------------------------------------------------------------------------------
 -- variables to store nodes and edges
-local EDGE_KEY="__EDGE__"
+local nodes,edges={},{}
 local G={nodes=nodes,edges=edges,TYPE="canvas"}
 
 local push,pop=table.insert,table.remove
@@ -30,19 +30,13 @@ node=function(n)
 	n.rx,n.ry=n.rx or 0,n.ry or 0
 	n.cx,n.cy=n.cx or 0,n.cy or 0
 	n.TYPE=n.TYPE or "circle"
-	push(G,n)
-	local id=#G
-	n.ID=id
-	return n,id
+	push(nodes,n)
+	return n,#nodes
 end
 
 edge=function(e)
-	assert(#e>1)
-	e.TYPE=EDGE_KEY
-	push(G,e)
-	local id=#G
-	e.ID=id
-	return e,id
+	push(edges,e)
+	return e,#edges
 end
 
 set_props=function(props)
@@ -51,27 +45,7 @@ set_props=function(props)
 	end
 end
 
-clear_elements=function(s,nums)
-	local n=#G
-	s=s or 1
-	nums=nums or #G
-	for i=s+nums,n do
-		G[i].ID=i-nums
-	end
-	for i=1,nums do
-		table.remove(G,s)
-	end
-	return #G
-end
-
-swap_elements=function(id1,id2)
-	local n,id
-	n=G[id1]
-	G[id1]=G[id2]	G[id1].ID=id1
-	G[id2]=n			G[id2]=id2
-end
-
-register_node_hook=function(key,value,border_func)
+register_hook=function(key,value,border_func)
 	rawset(template,key,value)
 	register_border_func(border_func)
 end
@@ -80,10 +54,11 @@ export=function(filepath)
 	local nodes,edges=nodes,edges
 	local t={}
 	local push=table.insert
-	local func
-	for i,obj in ipairs(G) do
-		func=obj.TYPE==EDGE_KEY and edge2str or node2str
-		push(t, func(obj,template))
+	for i,n in ipairs(nodes) do
+		t[i]=node2str(n,template)
+	end
+	for i,e in ipairs(edges) do
+		push(t,edge2str(e,template))
 	end
 	G.BODY=table.concat(t,"\n")
 	local str=node2str(G,template)
@@ -102,8 +77,7 @@ export=function(filepath)
 		print("Done!")
 		if ext and ext~="svg" then -- if other image format, convert the svg file to that format
 			print(string.format("generating %q ...",filepath))
---~ 			local cmd=string.format("convert %q  -trim +repage %q",svg_filepath,filepath) -- is fast but sometimes make mistake
-			local cmd=string.format("inkscape -e %q -z -D %q",filepath,svg_filepath) -- is stable and high-quality but slow
+			local cmd=string.format("convert %q  -trim +repage %q",svg_filepath,filepath)
 			print(io.popen(cmd):read("*a"))
 			print("Done!")
 		end
