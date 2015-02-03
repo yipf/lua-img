@@ -34,7 +34,7 @@ node(p)
 
 export("tree.png")
 
-print(clear_elements())
+print(remove_elements())
 
 require "plugins/flowchart"
 

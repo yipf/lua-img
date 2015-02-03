@@ -51,10 +51,11 @@ set_props=function(props)
 	end
 end
 
-clear_elements=function(s,nums)
+-- if no arguments are given, remove all elements; if given s, then remove nums elements from s.
+remove_elements=function(s,nums)
 	local n=#G
+	nums=nums or s and 1 or #G 
 	s=s or 1
-	nums=nums or #G
 	for i=s+nums,n do
 		G[i].ID=i-nums
 	end

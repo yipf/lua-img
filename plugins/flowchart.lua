@@ -15,9 +15,9 @@ require "utils/str2things"
 local str2xya=str2xya
 
 local cal_pos=function(str,target)
-	local x,y=str2xya(str)
+	local x,y=str2xya(str,props.dx,props.dy)
 	target=target or default_taget
-	return target.cx+x*props.dx,target.cy+y*props.dy
+	return target.cx+x,target.cy+y
 end
 
 unit=function(tp,label,pos_str,target)
@@ -34,7 +34,7 @@ condition=function(label,pos_str,target)
 end
 
 state=function(label,pos_str,target)
-	return unit("roundrect",label,pos_str,target)
+	return unit("ellipse",label,pos_str,target)
 end
 
 point_to=function(from,to,label,lpos,shape,reverse,smooth)

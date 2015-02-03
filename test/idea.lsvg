@@ -1,0 +1,21 @@
+
+require "plugins/flowchart"
+
+local make_chain=function(t,head,tail)
+	for i,v in ipairs(t) do
+		t[i]=state(v,"D1R"..i)
+	end
+	t.HEAD=head or "url(#arrow)"
+	t.TAIL=tail
+	return edge(t)
+end
+
+make_chain{"运动数据","图","大数据"}
+
+export("idea.png")
+
+remove_elements()
+
+make_chain{{"motion","data"},"graph","big data"}
+
+export("idea-en.png")

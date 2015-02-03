@@ -58,21 +58,9 @@
      </radialGradient>
 	 
      </defs>
-	<ellipse cx="450" cy="100" rx="50" ry="25"   style="" filter="nil" /><text x="450" y="108" stroke-width="0" fill="black" text-anchor="middle">start</text>
-<rect x="400" y="175" width="100" height="50" filter="nil"  style=""/><text x="450" y="208" stroke-width="0" fill="black" text-anchor="middle">p1</text>
-<rect x="400" y="275" width="100" height="50" filter="nil"  style=""/><text x="450" y="308" stroke-width="0" fill="black" text-anchor="middle">p2</text>
-<path d="M 400 400 L 450 375 L 500 400 L 450 425 z"   style=""  filter="nil" /><text x="450" y="408" stroke-width="0" fill="black" text-anchor="middle">c?</text>
-<rect x="400" y="475" width="100" height="50" filter="nil"  style=""/><text x="450" y="508" stroke-width="0" fill="black" text-anchor="middle">p3</text>
-<rect x="550" y="475" width="100" height="50" filter="nil"  style=""/><text x="600" y="508" stroke-width="0" fill="black" text-anchor="middle">p4</text>
-<ellipse cx="450" cy="600" rx="50" ry="25"   style="" filter="nil" /><text x="450" y="608" stroke-width="0" fill="black" text-anchor="middle">end</text>
-<path d = "M450 125 L450 175" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
-<path d = "M450 225 L450 275" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
-<path d = "M450 325 L450 375" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
-<path d = "M450 425 L450 475" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
-<text x="455" y="450" stroke-width="0" fill="black" text-anchor="start">no</text>
-<path d = "M500 400 L600 400 L600 475" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
-<text x="600" y="395" stroke-width="0" fill="black" text-anchor="middle">yes</text>
-<path d = "M450 525 L450 575" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
-<path d = "M600 525 L600 550 L450 550 L450 575" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
-<text x="525" y="550" stroke-width="0" fill="black" text-anchor="middle"></text>
+	<ellipse cx="150" cy="100" rx="50" ry="25"   style="" filter="nil" /><text x="150" y="108" stroke-width="0" fill="black" text-anchor="middle">运动数据</text>
+<ellipse cx="300" cy="100" rx="50" ry="25"   style="" filter="nil" /><text x="300" y="108" stroke-width="0" fill="black" text-anchor="middle">图</text>
+<ellipse cx="450" cy="100" rx="50" ry="25"   style="" filter="nil" /><text x="450" y="108" stroke-width="0" fill="black" text-anchor="middle">大数据</text>
+<path d = "M200 100 L250 100" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
+<path d = "M350 100 L400 100" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
 </svg>
