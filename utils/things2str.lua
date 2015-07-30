@@ -57,11 +57,21 @@ end
 require "utils/str2things"
 local str2xya=str2xya
 
+local str2lines=function(str)
+	local lines={}
+	for line in string.gmatch(str.."\n","(.-)\n") do
+		push(lines,line)
+	end
+	return lines
+end
+
+
 local process_label=function(obj,template)
 	local label,str=obj.LABEL,""
 	local lx,ly,align=str2xya(obj.LPOS)
 	obj.align=align
-	if type(label)=="table" then
+	label=str2lines(label)
+--~ 	if type(label)=="table" then
 		local n,offset=#label,obj.LOFFSET or 20 -- 'offset' is a variable to make label align center in vertical
 		for i,v in ipairs(label) do
 			obj.LABEL=v
@@ -69,11 +79,11 @@ local process_label=function(obj,template)
 			label[i]=obj2str("label",obj,template)
 		end
 		str=table.concat(label)
-	else -- string
-		obj.LABEL=tostring(label)
-		obj.lx,obj.ly=lx,ly
-		str=obj2str("label",obj,template)
-	end
+--~ 	else -- string
+--~ 		obj.LABEL=tostring(label)
+--~ 		obj.lx,obj.ly=lx,ly
+--~ 		str=obj2str("label",obj,template)
+--~ 	end
 	return str
 end
 

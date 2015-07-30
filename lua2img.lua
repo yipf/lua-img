@@ -1,4 +1,4 @@
-local WORK_DIR="/home/yipf/lua-svg-lab"
+local WORK_DIR="/home/yipf/lua-img"
 
 ----------------------------------------------------------------------------------------
 -- import template
@@ -33,6 +33,7 @@ node=function(n)
 	push(G,n)
 	local id=#G
 	n.ID=id
+	n.LEVEL=n.LEVEL or 0
 	return n,id
 end
 
@@ -42,7 +43,32 @@ edge=function(e)
 	push(G,e)
 	local id=#G
 	e.ID=id
+	e.LEVEL=e.LEVEL or 1
 	return e,id
+end
+
+local huge=math.huge
+local max,min=math.max,math.min
+group=function(g)
+	local xmin,ymin,xmax,ymax,lmin=huge,huge,-huge,-huge,huge
+	local cx,cy,rx,ry
+	for i,v in ipairs(g) do
+		cx,cy,rx,ry=v.cx,v.cy,v.rx,v.ry
+		xmin=min(cx-rx,xmin)
+		ymin=min(cy-ry,ymin)
+		xmax=max(cx+rx,xmax)
+		ymax=max(cy+ry,ymax)
+		lmin=min(v.LEVEL,lmin)
+	end
+	cx=(xmin+xmax)/2
+	cy=(ymin+ymax)/2
+	rx=(xmax-xmin)/2
+	ry=(ymax-ymin)/2
+	local xoffset=g.xoffset or g.offset or 0
+	local yoffset=g.yoffset or xoffset
+	g.cx,g.cy,g.rx,g.ry=cx,cy,rx+xoffset,ry+yoffset
+	g.LEVEL=lmin-1
+	return node(g)
 end
 
 set_props=function(props)
@@ -56,12 +82,9 @@ remove_elements=function(s,nums)
 	local n=#G
 	nums=nums or s and 1 or #G 
 	s=s or 1
-	for i=s+nums,n do
-		G[i].ID=i-nums
-	end
-	for i=1,nums do
-		table.remove(G,s)
-	end
+	for i=s+nums,n do		G[i].ID=i-nums		end -- update ID of rest elements
+	local remove=table.remove
+	for i=1,nums do		remove(G,s)	end -- remove elements one by one
 	return #G
 end
 
@@ -77,11 +100,16 @@ register_node_hook=function(key,value,border_func)
 	register_border_func(border_func)
 end
 
+local sort_f=function(a,b)
+	return a.LEVEL<b.LEVEL
+end
+
 export=function(filepath)
 	local nodes,edges=nodes,edges
 	local t={}
 	local push=table.insert
 	local func
+	table.sort(G,sort_f)
 	for i,obj in ipairs(G) do
 		func=obj.TYPE==EDGE_KEY and edge2str or node2str
 		push(t, func(obj,template))

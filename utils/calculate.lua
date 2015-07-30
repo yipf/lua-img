@@ -67,3 +67,16 @@ end
 register_border_func=function(key,func)
 	rawset(border_funcs,key,func)
 end
+
+get_group_border=function(nodes)
+	local huge=math.huge
+	local xmin,ymin,xmax,ymax=huge,huge,-huge,-huge
+	local min,max=math.min,math.max
+	for i,v in ipairs(nodes) do
+		xmin=min(v.cx-v.rx,xmin)
+		ymin=min(v.cy-v.ry,ymin)
+		xmax=max(v.cx+v.rx,xmax)
+		ymax=max(v.cy+v.ry,ymax)
+	end
+	return xmin,ymin,xmax,ymax
+end

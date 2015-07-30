@@ -10,7 +10,7 @@ end
 local push=table.insert
 
 local labels2tr
-labels2tr=function(labels,nodes,level)
+labels2tr=function(labels,nodes,level) -- prepare tree nodes and store them in `nodes'
 	level=level or 1
 	nodes=nodes or {}
 	local label,child=unpack(labels)
@@ -41,18 +41,26 @@ calculate_xy_LR=function(tr,dx,dy,x,y) -- map a tree to a matrix plane
 	return tr
 end
 
-make_tree_LR=function(labels)
+local compute_border=get_group_border
+
+make_tree_LR=function(labels)  -- make a left-to-right tree 
 	local nodes={}
 	local tr=labels2tr(labels,nodes,1)
-	return calculate_xy_LR(tr,props.DX,props.DY,0,0)
+	return calculate_xy_LR(tr,props.DX,props.DY,0,0),compute_border(nodes)
 end
 
-make_tree_UD=function(labels)
+make_tree_UD=function(labels)  -- make an up-to-down tree 
 	local nodes={}
 	local tr=labels2tr(labels,nodes,1)
 	calculate_xy_LR(tr,props.DY,props.DX,0,0)
 	for i,v in ipairs(nodes) do
 		v.cx,v.cy=v.cy,v.cx
 	end
-	return tr
+	return tr,compute_border(nodes)
+end
+
+append_child=function(parent,child)
+	local children=parent[2] or {}
+	push(children,child)
+	return rawset(parent,2,children)
 end

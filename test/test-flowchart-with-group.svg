@@ -58,22 +58,22 @@
      </radialGradient>
 	 
      </defs>
-	<path d = "M700 600 L640 629 L630 695 L584 647 L519 658 L550 600 L519 541 L584 552 L630 504 L640 570 Z" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "nil" marker-mid="url(#point2d)" marker-start="url(#point2d)" style="fill:orange;" filter="nil" /><text x="600" y="600" stroke-width="0" fill="black" text-anchor="middle">FIVE</text>
-<path d = "M325 500 L350 500 L350 400 L375 400" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "nil" marker-mid="nil" marker-start="nil" style="fill:none;" filter="nil" />
-<path d = "M125 350 L150 350 L150 400 L175 400" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "nil" marker-mid="nil" marker-start="nil" style="fill:none;" filter="nil" />
-<path d = "M325 500 L350 500 L350 500 L375 500" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "nil" marker-mid="nil" marker-start="nil" style="fill:none;" filter="nil" />
-<path d = "M225 400 L250 400 L250 500 L275 500" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "nil" marker-mid="nil" marker-start="nil" style="fill:none;" filter="nil" />
-<path d = "M325 500 L350 500 L350 600 L375 600" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "nil" marker-mid="nil" marker-start="nil" style="fill:none;" filter="nil" />
-<path d = "M225 400 L250 400 L250 300 L275 300" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "nil" marker-mid="nil" marker-start="nil" style="fill:none;" filter="nil" />
-<rect x="75" y="325" width="50" height="50" filter="nil"  style=""/><text x="100" y="358" stroke-width="0" fill="black" text-anchor="middle">root</text>
-<path d = "M225 400 L250 400 L250 200 L275 200" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "nil" marker-mid="nil" marker-start="nil" style="fill:none;" filter="nil" />
-<path d = "M125 350 L150 350 L150 100 L175 100" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "nil" marker-mid="nil" marker-start="nil" style="fill:none;" filter="nil" />
-<rect x="175" y="75" width="50" height="50" filter="nil"  style="fill:orange;"/><text x="200" y="108" stroke-width="0" fill="black" text-anchor="middle">left</text>
-<rect x="175" y="375" width="50" height="50" filter="nil"  style="fill:red;"/><text x="200" y="408" stroke-width="0" fill="black" text-anchor="middle">right</text>
-<rect x="275" y="275" width="50" height="50" filter="nil"  style=""/><text x="300" y="308" stroke-width="0" fill="black" text-anchor="middle">r2</text>
-<rect x="275" y="175" width="50" height="50" filter="nil"  style=""/><text x="300" y="208" stroke-width="0" fill="black" text-anchor="middle">r1</text>
-<rect x="275" y="475" width="50" height="50" filter="nil"  style="fill:grey;"/><text x="300" y="508" stroke-width="0" fill="black" text-anchor="middle">r3</text>
-<rect x="375" y="575" width="50" height="50" filter="nil"  style=""/><text x="400" y="608" stroke-width="0" fill="black" text-anchor="middle">rr3</text>
-<rect x="375" y="375" width="50" height="50" filter="nil"  style=""/><text x="400" y="398" stroke-width="0" fill="black" text-anchor="middle">rr1</text><text x="400" y="418" stroke-width="0" fill="black" text-anchor="middle">ddd</text>
-<rect x="375" y="475" width="50" height="50" filter="nil"  style=""/><text x="400" y="508" stroke-width="0" fill="black" text-anchor="middle">rr2</text>
+	<rect x="390" y="165" width="270" height="370" filter="nil"  style="stroke-dasharray:10,3;"/><text x="525" y="350" stroke-width="0" fill="black" text-anchor="middle">Group</text>
+<rect x="550" y="475" width="100" height="50" filter="nil"  style=""/><text x="600" y="508" stroke-width="0" fill="black" text-anchor="middle">p4</text>
+<ellipse cx="450" cy="600" rx="50" ry="25"   style="" filter="nil" /><text x="450" y="608" stroke-width="0" fill="black" text-anchor="middle">end</text>
+<rect x="400" y="475" width="100" height="50" filter="nil"  style=""/><text x="450" y="508" stroke-width="0" fill="black" text-anchor="middle">p3</text>
+<ellipse cx="450" cy="100" rx="50" ry="25"   style="" filter="nil" /><text x="450" y="108" stroke-width="0" fill="black" text-anchor="middle">start</text>
+<rect x="400" y="275" width="100" height="50" filter="nil"  style=""/><text x="450" y="308" stroke-width="0" fill="black" text-anchor="middle">p2</text>
+<path d="M 400 400 L 450 375 L 500 400 L 450 425 z"   style=""  filter="nil" /><text x="450" y="408" stroke-width="0" fill="black" text-anchor="middle">c?</text>
+<rect x="400" y="175" width="100" height="50" filter="nil"  style=""/><text x="450" y="208" stroke-width="0" fill="black" text-anchor="middle">p1</text>
+<path d = "M500 400 L600 400 L600 475" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
+<text x="600" y="395" stroke-width="0" fill="black" text-anchor="middle">yes</text>
+<path d = "M450 525 L450 575" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
+<path d = "M450 425 L450 475" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
+<text x="455" y="450" stroke-width="0" fill="black" text-anchor="start">no</text>
+<path d = "M450 325 L450 375" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
+<path d = "M600 525 L600 550 L450 550 L450 575" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
+<text x="525" y="550" stroke-width="0" fill="black" text-anchor="middle"></text>
+<path d = "M450 225 L450 275" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
+<path d = "M450 125 L450 175" fill = "none" stroke = "nil"  stroke-linejoin="round" marker-end = "url(#arrow)" marker-mid="nil" marker-start="nil" style="" filter="nil" />
 </svg>

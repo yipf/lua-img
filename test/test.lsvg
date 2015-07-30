@@ -8,7 +8,7 @@ local tr,x,y=make_tree_LR{"root",	{
 		{"r1"},
 		{"r2"},
 		{"r3",{
-			{"rr1"},
+			{"rr1\nddd"},
 			{"rr2"},
 			{"rr3"},
 		}},
@@ -54,4 +54,8 @@ point_to(c,p4,"yes","U5M","7")
 point_to(p3,_end)
 point_to(p4,_end,"","","N")
 
-export("test-flowchart.png")
+
+group{LABEL="Group",p1,p2,p4,offset=10,TYPE="rect",STYLE={dashed=true}}
+
+
+export("test-flowchart-with-group.png")
